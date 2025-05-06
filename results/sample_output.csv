@@ -1,0 +1,10 @@
+table_name,check_type,check_name,status,remarks
+sales,null_check,Null check on sale_id,Pass,
+sales,null_check,Null check on customer_id,Fail,"Null values found in column customer_id. Ensure data quality by populating missing values."
+sales,unique_key,Unique check on sale_id,Pass,
+sales,composite_key,Composite key check on sale_id, date,Fail,"Duplicate composite keys found in columns sale_id, date. Ensure combination is unique."
+sales,range_check,Range check on amount,Fail,"Values in column amount outside range [0, 10000]. Validate data sources."
+sales,data_type_check,Data type check on sale_id,Pass,
+sales,custom_query,Custom query validation,Fail,"Custom query returned 5, expected 0. Investigate data anomalies."
+query_1,data_type_check,Data type check on transaction_id,Fail,"Data type mismatch. Expected IntegerType, found StringType. Alter column type to match expected."
+query_1,range_check,Range check on amount,Pass,

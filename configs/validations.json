@@ -1,0 +1,32 @@
+[
+  {
+    "table_name": "sales",
+    "validations": [
+      {
+        "type": "null_check",
+        "columns": ["sale_id", "customer_id"]
+      },
+      {
+        "type": "unique_key",
+        "columns": ["sale_id"]
+      },
+      {
+        "type": "range_check",
+        "columns": ["amount"],
+        "min": 0,
+        "max": 10000
+      }
+    ]
+  },
+  {
+    "id": "query_1",
+    "query": "SELECT * FROM transactions WHERE date > '2023-01-01'",
+    "validations": [
+      {
+        "type": "data_type_check",
+        "columns": ["transaction_id"],
+        "data_type": "integer"
+      }
+    ]
+  }
+]
